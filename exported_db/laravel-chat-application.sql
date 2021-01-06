@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 05, 2021 at 09:07 PM
+-- Generation Time: Jan 06, 2021 at 06:20 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.27
 
@@ -59,14 +59,10 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`id`, `from`, `to`, `message`, `type`, `created_at`, `updated_at`) VALUES
-(1, 2, 3, 'hello maa', 0, '2021-01-05 11:16:50', '2021-01-05 11:16:50'),
-(2, 2, 3, 'hello maa', 1, '2021-01-05 11:16:50', '2021-01-05 11:16:50'),
-(3, 3, 2, 'yes baby', 0, '2021-01-05 11:17:10', '2021-01-05 11:17:10'),
-(4, 3, 2, 'yes baby', 1, '2021-01-05 11:17:10', '2021-01-05 11:17:10'),
-(5, 3, 1, 'hellotest', 0, '2021-01-05 11:17:36', '2021-01-05 11:17:36'),
-(6, 3, 1, 'hellotest', 1, '2021-01-05 11:17:36', '2021-01-05 11:17:36'),
-(7, 3, 1, 'clickk', 0, '2021-01-05 12:43:50', '2021-01-05 12:43:50'),
-(8, 3, 1, 'clickk', 1, '2021-01-05 12:43:50', '2021-01-05 12:43:50');
+(1, 2, 3, 'Hello', 0, '2021-01-05 22:53:50', '2021-01-05 22:53:50'),
+(2, 2, 3, 'Hello', 1, '2021-01-05 22:53:50', '2021-01-05 22:53:50'),
+(3, 3, 2, 'yes how are you?', 0, '2021-01-05 22:54:10', '2021-01-05 22:54:10'),
+(4, 3, 2, 'yes how are you?', 1, '2021-01-05 22:54:10', '2021-01-05 22:54:10');
 
 -- --------------------------------------------------------
 
@@ -116,6 +112,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `is_admin` tinyint(4) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -124,10 +121,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Test', 'test@email.com', NULL, '$2y$10$ATOT96hv34nzxgYxGJP/S.EsBsYjVssnJ4FfDFxOitEickwKgrkAW', NULL, '2021-01-04 01:19:31', '2021-01-04 01:19:31'),
-(2, 'Jaber', 'jaber@email.com', NULL, '$2y$10$LvhZoWWU5/mNLpz.iGkStOR/iPPaB7owjWshHd5Vii6YvzIbn8xme', NULL, '2021-01-04 10:20:07', '2021-01-04 10:20:07'),
-(3, 'Sumaiya', 'sumaiya@email.com', NULL, '$2y$10$5IKLaUg7OBAsZt3gTvkK/OPZzW7.Tx7mIlp9p98DKjynFQozKQMq.', NULL, '2021-01-04 10:33:05', '2021-01-04 10:33:05');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `is_admin`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'admin@email.com', NULL, '$2y$10$Km.A32aSeLsgitzhUNnhp.REyDwQ15JG205NskpSKd6ctcDs7HZWi', NULL, 1, '2021-01-05 22:08:21', '2021-01-05 22:08:21'),
+(2, 'Jaber', 'jaber@email.com', NULL, '$2y$10$TCk29kHOGuxL2kUOSMOkh.Gd3ck5DLlFUr4gXkGrVDxCdXReWYcYm', NULL, 0, '2021-01-05 22:26:29', '2021-01-05 22:26:29'),
+(3, 'Sumaiya', 'sumaiya@email.com', NULL, '$2y$10$ZA4PKKGYw0aWycBGy/rwLef1paVS2EBH2phMBKKf4KI4O.1N7UJHy', NULL, 0, '2021-01-05 22:30:03', '2021-01-05 22:30:03'),
+(4, 'Test User', 'test@email.com', NULL, '$2y$10$F6RXjDkcY50VHnM8SHC.1e44mdWQBmS4A9Y.8y/DKzPZMGrEDMjEe', NULL, 0, '2021-01-05 22:57:36', '2021-01-05 22:57:36');
 
 -- --------------------------------------------------------
 
@@ -201,7 +199,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -213,7 +211,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `websockets_statistics_entries`

@@ -26,7 +26,7 @@ class MessageController extends Controller
      */
     public function userList()
     {
-        $users = User::latest()->where('id', '!=', auth()->user()->id)->get();
+        $users = User::latest()->where('id', '!=', auth()->user()->id)->where('is_admin', '!=', 1)->get();
         // if not ajax request
         if(\Request::ajax()){
             return response()->json($users, 200);
